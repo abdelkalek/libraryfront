@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { DefaultComponent } from './default/default.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
-import { AnalyticsComponent } from './analytics/analytics.component';
-import { DigitalMarketingComponent } from './digital-marketing/digital-marketing.component';
-import { HumanResourcesComponent } from './human-resources/human-resources.component';
 import {AjoutLivreComponent} from "./ajout-livre/ajout-livre.component";
+import {AuteurComponent} from "./auteur/auteur.component";
+import {TypeLivreComponent} from "./type-livre/type-livre.component";
 
 const routes: Routes = [
   {
@@ -16,7 +13,7 @@ const routes: Routes = [
         path: 'default',
         component: DefaultComponent,
         data: {
-          title: 'Default'
+          title: 'Livre '
         }
       }, {
         path: 'addlivre',
@@ -27,33 +24,19 @@ const routes: Routes = [
       },
 
       {
-        path: 'e-commerce',
-        component: ECommerceComponent,
+        path: 'Auteur',
+        component: AuteurComponent,
         data: {
-          title: 'e-Commerce'
+          title: 'Auteur'
         }
       },
       {
-        path: 'analytics',
-        component: AnalyticsComponent,
+        path: 'type',
+        component: TypeLivreComponent,
         data: {
-          title: 'Analytics'
+          title: 'type livre'
         }
-      },
-      {
-        path: 'digital-marketing',
-        component: DigitalMarketingComponent,
-        data: {
-          title: 'Digital Marketing'
-        }
-      },
-      {
-        path: 'human-resources',
-        component: HumanResourcesComponent,
-        data: {
-          title: 'Human Resources'
-        }
-      },
+      }
     ]
   }
 ];
