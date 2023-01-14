@@ -11,7 +11,11 @@ export const ROUTES: RouteInfo[] = [
               ] },
             { path: '/dashboard/Auteur', title: 'Auteur', icon: 'bx bx-user-pin', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
            { path: '/dashboard/type', title: 'Type', icon: 'bx bx-cog', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: '/dashboard/digital-marketing', title: 'Employe', icon: 'bx bx-user', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/dashboard/employe', title: 'Employe', icon: 'bx bx-user', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
+                { path: '/dashboard/employe', title: 'List de Employes', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu:  [] },
+                { path: '/dashboard/ajouter-employe', title: 'Ajouter Un Employe', icon: 'bx bx-right-arrow-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+
+              ] },
         ]
     }
 ];

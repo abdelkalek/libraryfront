@@ -10,18 +10,23 @@ import { DefaultComponent } from './default/default.component';
 import { AuteurComponent } from './auteur/auteur.component';
 import { AjoutLivreComponent } from './ajout-livre/ajout-livre.component';
 import { TypeLivreComponent } from './type-livre/type-livre.component';
+import { EmployeComponent } from './employe/employe.component';
+import { AddEmployeComponent } from './add-employe/add-employe.component';
+import { AjouterEmployeComponent } from './ajouter-employe/ajouter-employe.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
 @NgModule({
   declarations: [
-     DefaultComponent, AuteurComponent, AjoutLivreComponent, TypeLivreComponent
+     DefaultComponent, AuteurComponent, AjoutLivreComponent, TypeLivreComponent, EmployeComponent, AddEmployeComponent, AjouterEmployeComponent
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    PerfectScrollbarModule,
-    HighchartsChartModule
-  ]
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        PerfectScrollbarModule,
+        HighchartsChartModule,
+        ReactiveFormsModule
+    ]
 })
 export class DashboardModule { }

@@ -37,6 +37,21 @@ const routes: Routes = [
           title: 'type livre'
         }
       }
+      ,
+      {
+        path: 'employe',
+        component: TypeLivreComponent,
+        data: {
+          title: 'Employe'
+        }
+      },
+      {
+        path: 'ajouter-employe',
+        component: TypeLivreComponent,
+        data: {
+          title: 'Ajouter Employe'
+        }
+      }
     ]
   }
 ];

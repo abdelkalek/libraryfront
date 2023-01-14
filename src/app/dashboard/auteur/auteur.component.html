@@ -39,27 +39,29 @@
     <hr/>
     <div class="card">
       <div class="card-body">
+
+        <form [formGroup]="AuteurForm" (ngSubmit)="submit()">
         <div class="row">
           <div class="col-md-3">Nom</div>
           <div class="col-md-9">
-            <input class="form-control mb-3" type="text" placeholder="Nom" aria-label="default input example">
+            <input class="form-control mb-3" type="text" placeholder="Nom" formControlName="nom" aria-label="default input example">
           </div>
         </div>
         <div class="row">
           <div class="col-md-3">Prenom</div>
           <div class="col-md-9">
-            <input class="form-control mb-3" type="text" placeholder="Prenom" aria-label="default input example">
+            <input class="form-control mb-3" type="text" placeholder="Prenom" formControlName="prenom" aria-label="default input example">
           </div>
         </div>
-
         <div class="row">
           <div class="col-md-4">
-            <button type="button" class="btn btn-success px-5">Ajouter</button>
+            <button  class="btn btn-success px-5" type="submit" [disabled]="AuteurForm.invalid">Ajouter</button>
           </div>
           <div class="col-md-8">
-            <button type="button" class="btn btn-primary px-5">Annuler</button>
+            <button type="reset" class="btn btn-primary px-5">Annuler</button>
           </div>
         </div>
+        </form>
       </div>
     </div>
   </div>
@@ -87,9 +89,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Abdelkhalek</td>
-          <td>Keate Medona</td>
+        <tr *ngFor="let a of AuteurTab"  >
+          <td>{{a.nom}}</td>
+          <td>{{a.prenom}}</td>
           <td>
             <i class="bx bx-cog font-20 text-secondary me-2"></i>
             <i class="bx bx-trash font-20 text-danger"></i>
