@@ -33,56 +33,59 @@
     <hr/>
     <div class="card">
       <div class="card-body">
+        <form [formGroup]="LivreForm" (ngSubmit)="submit()">
           <div class="row">
-          <div class="col-md-3">Titre</div>
-          <div class="col-md-9">
-            <input class="form-control mb-3" type="text" placeholder="Titre" aria-label="default input example">
-          </div>
+            <div class="col-md-3">Titre</div>
+            <div class="col-md-9">
+              <input class="form-control mb-3" type="text" formControlName="titre" placeholder="Titre"
+                     aria-label="default input example">
+            </div>
           </div>
           <div class="row">
             <div class="col-md-3">ISBN</div>
             <div class="col-md-9">
-              <input class="form-control mb-3" type="text" placeholder="ISBN" aria-label="default input example">
+              <input class="form-control mb-3" type="text" formControlName="isbn" placeholder="ISBN"
+                     aria-label="default input example">
             </div>
           </div>
-            <div class="row">
-              <div class="col-md-3">Desciption</div>
-              <div class="col-md-9">
-                <input class="form-control mb-3" type="text" placeholder="Desciption" aria-label="default input example">
-              </div>
-            </div>
-        <div class="row">
-          <div class="col-md-3">Type</div>
-          <div class="col-md-9">
-            <select class="form-select mb-3" aria-label="Default select example">
-              <option selected>Choisir Type</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">Auteur</div>
-          <div class="col-md-9">
-            <select class="form-select mb-3" aria-label="Default select example">
-              <option selected>Choisir Auteur</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <button type="button" class="btn btn-success px-5">Ajouter</button>
-          </div>
-          <div class="col-md-3">
-            <button type="button" class="btn btn-primary px-5">Annuler</button>
-          </div>
-        </div>
+          <div class="row">
+            <div class="col-md-3">Desciption</div>
+            <div class="col-md-9">
+              <input class="form-control mb-3" type="text" formControlName="description" placeholder="Desciption"
+                     aria-label="default input example">
             </div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-md-3">Type</div>
+            <div class="col-md-9">
+              <select class="form-select mb-3" aria-label="Default select example" formControlName="typeId">
+                <option *ngFor="let t of TypeLivreList " [value]="t.id">
+                  {{t.designation}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Auteur</div>
+            <div class="col-md-9">
+              <select class="form-select mb-3" aria-label="Default select example" formControlName="auteurId">
+                <option *ngFor="let a of AuteurList " [value]="a.id">
+                  {{a.nom}}  {{a.prenom}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <button type="submit" class="btn btn-success px-5">Ajouter</button>
+            </div>
+            <div class="col-md-3">
+              <button type="reset" class="btn btn-primary px-5">Annuler</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 

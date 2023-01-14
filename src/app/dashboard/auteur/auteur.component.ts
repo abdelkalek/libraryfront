@@ -55,7 +55,7 @@ export class AuteurComponent implements OnInit {
   }
   update(id) {
     console.log('Edit auteur', id)
-    this.router.navigate(['../updateauteur'], {relativeTo: this.route}) .then(nav => {
+    this.router.navigate([`../updateauteur/${id}`], {relativeTo: this.route}) .then(nav => {
       console.log(nav); // true if navigation is successful
     }, err => {
       console.log(err) // when there's an error
