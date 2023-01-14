@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators } from '@angular/forms';
 import { Auteur } from '../models/Auteur';
 import {AuteurService} from "../Services/auteur.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-auteur',
@@ -11,7 +12,7 @@ import {AuteurService} from "../Services/auteur.service";
 export class AuteurComponent implements OnInit {
   AuteurTab: Auteur[] = [];
 
-  constructor(private auteurService : AuteurService  ) { }
+  constructor(private auteurService : AuteurService , private router: Router, private route: ActivatedRoute ) { }
   AuteurForm = new FormGroup({
     nom: new FormControl('', [Validators.required, Validators.minLength(4)]),
     prenom: new FormControl('', [Validators.required, Validators.minLength(4)]),
@@ -44,11 +45,21 @@ export class AuteurComponent implements OnInit {
     this.auteurService.deleteAutherByid(id).subscribe({
       next: (x) =>{
         console.log(x)
+        this.ngOnInit();
       },
       error:(e)=>{
         console.log(e)
       },
       complete: () =>{}
     })
+  }
+  update(id) {
+    console.log('Edit auteur', id)
+    this.router.navigate(['../updateauteur'], {relativeTo: this.route}) .then(nav => {
+      console.log(nav); // true if navigation is successful
+    }, err => {
+      console.log(err) // when there's an error
+    });
+
   }
 }
