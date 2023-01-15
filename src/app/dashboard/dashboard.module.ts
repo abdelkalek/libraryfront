@@ -16,12 +16,13 @@ import { AjouterEmployeComponent } from './ajouter-employe/ajouter-employe.compo
 import {ReactiveFormsModule} from "@angular/forms";
 import { UpdateAuteurComponent } from './update-auteur/update-auteur.component';
 import { UpdateTypeLivreComponent } from './update-type-livre/update-type-livre.component';
+import { UpdateLivreComponent } from './update-livre/update-livre.component';
 
 
 
 @NgModule({
   declarations: [
-     DefaultComponent, AuteurComponent, AjoutLivreComponent, TypeLivreComponent, EmployeComponent, AddEmployeComponent, AjouterEmployeComponent, UpdateAuteurComponent, UpdateTypeLivreComponent
+     DefaultComponent, AuteurComponent, AjoutLivreComponent, TypeLivreComponent, EmployeComponent, AddEmployeComponent, AjouterEmployeComponent, UpdateAuteurComponent, UpdateTypeLivreComponent, UpdateLivreComponent
   ],
     imports: [
         CommonModule,

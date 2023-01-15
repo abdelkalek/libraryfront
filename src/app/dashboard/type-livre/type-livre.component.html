@@ -10,12 +10,6 @@
       </ol>
     </nav>
   </div>
-
-
-
-
-
-
   <div class="ms-auto">
     <div class="btn-group">
       <button type="button" class="btn btn-primary">Settings</button>
@@ -35,14 +29,14 @@
 <!--end breadcrumb-->
 <div class="row">
   <div class="col-xl-6 ">
-    <h6 class="mb-0 text-uppercase"> Information de l'auteur </h6>
+    <h6 class="mb-0 text-uppercase"> Information de l'Type </h6>
     <hr/>
     <div class="card">
       <div class="card-body">
 
         <form [formGroup]="typelivreForm" (ngSubmit)="submit()">
           <div class="row">
-            <div class="col-md-3">Nom</div>
+            <div class="col-md-3">Designation</div>
             <div class="col-md-9">
               <input class="form-control mb-3" type="text" placeholder="designation" formControlName="designation" aria-label="default input example">
             </div>

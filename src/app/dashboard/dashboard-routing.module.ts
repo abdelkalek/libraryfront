@@ -6,6 +6,9 @@ import {AuteurComponent} from "./auteur/auteur.component";
 import {TypeLivreComponent} from "./type-livre/type-livre.component";
 import {UpdateAuteurComponent} from "./update-auteur/update-auteur.component";
 import {UpdateTypeLivreComponent} from "./update-type-livre/update-type-livre.component";
+import {UpdateLivreComponent} from "./update-livre/update-livre.component";
+import {AjouterEmployeComponent} from "./ajouter-employe/ajouter-employe.component";
+import {EmployeComponent} from "./employe/employe.component";
 
 const routes: Routes = [
   {
@@ -24,7 +27,13 @@ const routes: Routes = [
           title: 'addlivre'
         }
       },
-
+      {
+        path: 'updatelivre/:id',
+        component: UpdateLivreComponent,
+        data: {
+          title: 'Modifier Livre'
+        }
+      },
       {
         path: 'Auteur',
         component: AuteurComponent,
@@ -56,14 +65,14 @@ const routes: Routes = [
       ,
       {
         path: 'employe',
-        component: TypeLivreComponent,
+        component: EmployeComponent,
         data: {
           title: 'Employe'
         }
       },
       {
         path: 'ajouter-employe',
-        component: TypeLivreComponent,
+        component: AjouterEmployeComponent,
         data: {
           title: 'Ajouter Employe'
         }

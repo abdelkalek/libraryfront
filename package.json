@@ -37,6 +37,7 @@
     "ngx-perfect-scrollbar": "^10.1.1",
     "rxjs": "~7.5.0",
     "smartwizard": "^5.1.1",
+    "sweetalert2": "^11.7.0",
     "text-mask-addons": "^3.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
