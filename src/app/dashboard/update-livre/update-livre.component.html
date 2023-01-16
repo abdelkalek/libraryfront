@@ -1,0 +1,90 @@
+<!--breadcrumb-->
+<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+  <div class="breadcrumb-title pe-3">Auteur</div>
+  <div class="ps-3">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0 p-0">
+        <li class="breadcrumb-item"><a href="#" (click)="$event.preventDefault()"><i class="bx bx-home-alt"></i></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Modifier Auteur</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="ms-auto">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary">Settings</button>
+      <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"><span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"><a class="dropdown-item" href="#"
+                                                                             (click)="$event.preventDefault()">Action</a>
+        <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Another action</a>
+        <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" (click)="$event.preventDefault()">Separated link</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end breadcrumb-->
+<div class="row mx-auto">
+  <div class="col-xl-10 ">
+    <h6 class="mb-0 text-uppercase"> Modifier de l'auteur </h6>
+    <hr/>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="LivreUpdateForm" (ngSubmit)="submit()">
+          <div class="row">
+            <div class="col-md-3">Titre</div>
+            <div class="col-md-9">
+              <input class="form-control mb-3" type="text" [(ngModel)]="existLivre.titre"   formControlName="titre" placeholder="Titre"
+                     aria-label="default input example">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">ISBN</div>
+            <div class="col-md-9">
+              <input class="form-control mb-3" type="text"  [(ngModel)]="existLivre.isbn"  formControlName="isbn" placeholder="ISBN"
+                     aria-label="default input example">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Desciption</div>
+            <div class="col-md-9">
+              <input class="form-control mb-3" type="text" [(ngModel)]="existLivre.description"  formControlName="description" placeholder="Desciption"
+                     aria-label="default input example">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Type</div>
+            <div class="col-md-9">
+              <select class="form-select mb-3" aria-label="Default select example" formControlName="typeId">
+                <option *ngFor="let t of TypeLivreList " [value]="t.id">
+                  {{t.designation}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">Auteur</div>
+            <div class="col-md-9">
+              <select class="form-select mb-3" aria-label="Default select example" formControlName="auteurId">
+                <option *ngFor="let a of AuteurList " [value]="a.id">
+                  {{a.nom}}  {{a.prenom}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row mx-auto">
+            <div class="col-md-3">
+              <button type="submit" class="btn btn-success me-1">Modifier Livre</button>
+            </div>
+            <div class="col-md-4">
+              <button type="reset" class="btn btn-primary ">Annuler</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
