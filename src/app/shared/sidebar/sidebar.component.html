@@ -16,7 +16,8 @@
         <ul class="navigation">
             <!-- First level menu -->
             <li *ngFor="let menuItem of menuItems" [ngClass]="[menuItem.class]" [routerLinkActive]="menuItem.submenu.length != 0 ? '' : 'active'"
-                [routerLinkActiveOptions]="{exact: true}">
+                [routerLinkActiveOptions]="{exact: true}" >
+
                 <a [routerLink]="menuItem.class === '' ? [menuItem.path] : null" *ngIf="!menuItem.isExternalLink; else externalLinkBlock">
                     <i [ngClass]="[menuItem.icon]"></i>
                     <span class="menu-title">{{menuItem.title}}</span>
@@ -31,7 +32,8 @@
                 </ng-template>
                 <!-- Second level menu -->
                 <ul class="menu-content" *ngIf="menuItem.submenu.length > 0">
-                    <li *ngFor="let menuSubItem of menuItem.submenu" [routerLinkActive]="menuSubItem.submenu.length > 0 ? '' : 'active'" [ngClass]="[menuSubItem.class]">
+                    <li *ngFor="let menuSubItem of menuItem.submenu" [routerLinkActive]="menuSubItem.submenu.length > 0 ? '' : 'active'" [ngClass]="[menuSubItem.class]"  [hidden]="menuSubItem.title =='Employe' && role[0]=='Employe' " >
+
                         <a [routerLink]="menuSubItem.submenu.length > 0 ? null : [menuSubItem.path]" *ngIf="!menuSubItem.isExternalLink; else externalSubLinkBlock">
                             <i [ngClass]="[menuSubItem.icon]"></i>
                             <span class="sub-menu-title">{{menuSubItem.title}}</span>

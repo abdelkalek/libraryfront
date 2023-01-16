@@ -9,6 +9,8 @@ import {UpdateTypeLivreComponent} from "./update-type-livre/update-type-livre.co
 import {UpdateLivreComponent} from "./update-livre/update-livre.component";
 import {AjouterEmployeComponent} from "./ajouter-employe/ajouter-employe.component";
 import {EmployeComponent} from "./employe/employe.component";
+import {UpdateEmployeComponent} from "./update-employe/update-employe.component";
+import {AuthGuard} from "../auth/sign-in/auth.guard";
 
 const routes: Routes = [
   {
@@ -68,6 +70,13 @@ const routes: Routes = [
         component: EmployeComponent,
         data: {
           title: 'Employe'
+        }
+      },
+      {
+        path: 'updateemploye/:id',
+        component: UpdateEmployeComponent,
+        data: {
+          title: 'Modifier employe'
         }
       },
       {

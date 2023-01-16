@@ -4,6 +4,7 @@ import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '
 import { SidebarService } from "./sidebar.service";
 
 import * as $ from 'jquery';
+import {AuthService} from "../../auth/sign-in/auth.service";
 
 
 @Component({
@@ -12,11 +13,11 @@ import * as $ from 'jquery';
 })
 
 export class SidebarComponent implements OnInit {
-    
-    public menuItems: any[];
 
-  
-    constructor( public sidebarservice: SidebarService,private router: Router) {
+    public menuItems: any[];
+     role =['']
+
+    constructor( public sidebarservice: SidebarService,private router: Router, private authService :AuthService) {
 
         router.events.subscribe( (event: Event) => {
 
@@ -28,7 +29,7 @@ export class SidebarComponent implements OnInit {
 
                 this.toggleSidebar();
                 // Hide loading indicator
-               
+
             }
 
             if (event instanceof NavigationError) {
@@ -41,10 +42,10 @@ export class SidebarComponent implements OnInit {
 
     }
 
-        
+
     toggleSidebar() {
         this.sidebarservice.setSidebarState(!this.sidebarservice.getSidebarState());
-        
+
         if ($(".wrapper").hasClass("nav-collapsed")) {
             // unpin sidebar when hovered
             $(".wrapper").removeClass("nav-collapsed");
@@ -59,7 +60,7 @@ export class SidebarComponent implements OnInit {
                     $(".wrapper").removeClass("sidebar-hovered");
                 }
             )
-      
+
         }
 
     }
@@ -71,12 +72,16 @@ export class SidebarComponent implements OnInit {
     hideSidebar() {
         this.sidebarservice.setSidebarState(true);
     }
-    
+
 
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
         $.getScript('./assets/js/app-sidebar.js');
-
+      this.authService.userAuth.subscribe({
+        next:(res)=>{
+          this.role = res.roles
+        }
+      })
     }
 
 }

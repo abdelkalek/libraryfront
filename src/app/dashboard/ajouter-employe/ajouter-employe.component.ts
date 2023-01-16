@@ -38,7 +38,7 @@ export class AjouterEmployeComponent implements OnInit {
         console.log(err)
       }
     })
-    this.router.navigate([`/dashboard/default`],).then(nav => {
+    this.router.navigate([`/dashboard/employe`],).then(nav => {
       console.log(nav); // true if navigation is successful
     }, err => {
       console.log(err) // when there's an error
